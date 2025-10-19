@@ -1,21 +1,13 @@
 #include <iostream>
-using namespace std;
-
 int main() {
-    int n;
-    cout << "Cuantos carros desea ingresar? ";
-    cin >> n;
+    int N, contador = 0;
+    std::cout << "Ingresa un número N: ";
+    std::cin >> N;
 
-    double velocidad, suma = 0;
-    for(int i = 0; i < n; i++){
-        cout << "Velocidad del carro " << i+1 << ": ";
-        cin >> velocidad;
-        suma += velocidad;
+    for (int i = 1; i <= N; ++i) {
+        if (i % 2 == 0) contador++;
     }
 
-    double promedio = suma / n;
-    cout << "Velocidad promedio: " << promedio << " km/h" << endl;
-
+    std::cout << "Hay " << contador << " números pares entre 1 y " << N << std::endl;
     return 0;
 }
-

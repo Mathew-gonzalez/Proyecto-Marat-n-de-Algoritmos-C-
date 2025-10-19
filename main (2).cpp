@@ -1,10 +1,19 @@
 #include <iostream>
 int main() {
-    double C;
-    std::cout << "Ingresa temperatura en Celsius: ";
-    std::cin >> C;
+    int n;
+    unsigned long long factorial = 1;
+    std::cout << "Ingresa un número entero positivo: ";
+    std::cin >> n;
 
-    double F = C * 9.0/5.0 + 32;
-    std::cout << "La temperatura en Fahrenheit es: " << F << std::endl;
+    if (n < 0) {
+        std::cout << "Error: El número debe ser positivo." << std::endl;
+        return 1;
+    }
+
+    for (int i = 1; i <= n; ++i) {
+        factorial *= i;
+    }
+
+    std::cout << "El factorial de " << n << " es: " << factorial << std::endl;
     return 0;
 }

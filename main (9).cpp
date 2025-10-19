@@ -1,19 +1,14 @@
 #include <iostream>
-using namespace std;
-
 int main() {
-    int n;
-    cout << "Cuantos juegos desea ingresar? ";
-    cin >> n;
+    int año;
+    std::cout << "Ingresa un año: ";
+    std::cin >> año;
 
-    string juego, masLargo = "";
-    for(int i = 0; i < n; i++){
-        cout << "Nombre del juego " << i+1 << ": ";
-        cin >> juego;
-        if(juego.length() > masLargo.length()) masLargo = juego;
+    if ((año % 4 == 0 && año % 100 != 0) || (año % 400 == 0)) {
+        std::cout << "El año " << año << " es bisiesto." << std::endl;
+    } else {
+        std::cout << "El año " << año << " no es bisiesto." << std::endl;
     }
 
-    cout << "Juego con nombre mas largo: " << masLargo << endl;
     return 0;
 }
-

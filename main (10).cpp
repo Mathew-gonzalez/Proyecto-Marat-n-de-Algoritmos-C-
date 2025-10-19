@@ -1,19 +1,17 @@
 #include <iostream>
-using namespace std;
-
 int main() {
-    int n;
-    cout << "Cuantos juegos desea calificar? ";
-    cin >> n;
+    int base, exponente;
+    long long resultado = 1;
 
-    int calificacion, suma = 0;
-    for(int i = 0; i < n; i++){
-        cout << "Calificacion del juego " << i+1 << ": ";
-        cin >> calificacion;
-        suma += calificacion;
+    std::cout << "Ingresa la base: ";
+    std::cin >> base;
+    std::cout << "Ingresa el exponente: ";
+    std::cin >> exponente;
+
+    for (int i = 1; i <= exponente; ++i) {
+        resultado *= base;
     }
 
-    double promedio = (double)suma / n;
-    cout << "Promedio de calificaciones: " << promedio << endl;
+    std::cout << base << "^" << exponente << " = " << resultado << std::endl;
     return 0;
 }

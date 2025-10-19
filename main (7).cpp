@@ -1,13 +1,17 @@
 #include <iostream>
 int main() {
-    int a, b, c;
-    std::cout << "Ingresa tres números: ";
-    std::cin >> a >> b >> c;
+    int n;
+    double suma = 0;
+    std::cout << "Ingresa la cantidad de números: ";
+    std::cin >> n;
 
-    int mayor = a;
-    if (b > mayor) mayor = b;
-    if (c > mayor) mayor = c;
+    for (int i = 0; i < n; ++i) {
+        double num;
+        std::cout << "Ingresa un número: ";
+        std::cin >> num;
+        suma += num;
+    }
 
-    std::cout << "El número mayor es: " << mayor << std::endl;
+    std::cout << "El promedio es: " << suma/n << std::endl;
     return 0;
 }

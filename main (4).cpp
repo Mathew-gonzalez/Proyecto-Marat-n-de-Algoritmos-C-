@@ -1,17 +1,19 @@
 #include <iostream>
 int main() {
-    int n;
-    double suma = 0;
-    std::cout << "Ingresa la cantidad de números: ";
+    int n, suma = 0;
+    std::cout << "Ingresa un número entero positivo: ";
     std::cin >> n;
 
-    for (int i = 0; i < n; ++i) {
-        double num;
-        std::cout << "Ingresa un número: ";
-        std::cin >> num;
-        suma += num;
+    if (n < 0) {
+        std::cout << "Error: El número debe ser positivo." << std::endl;
+        return 1;
     }
 
-    std::cout << "El promedio es: " << suma/n << std::endl;
+    while (n > 0) {
+        suma += n % 10;
+        n /= 10;
+    }
+
+    std::cout << "La suma de los dígitos es: " << suma << std::endl;
     return 0;
 }

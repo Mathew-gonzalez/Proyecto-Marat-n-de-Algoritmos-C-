@@ -17,4 +17,3 @@ int main() {
     std::cout << "Número de vocales: " << contador << std::endl;
     return 0;
 }
-
