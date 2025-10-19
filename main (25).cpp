@@ -1,21 +1,27 @@
 #include <iostream>
-#include <sstream>
-#include <string>
-using namespace std;
+#include <vector>
 
 int main() {
-    string linea;
-    cout << "Ingrese una frase: ";
-    getline(cin, linea);
+    int n;
+    std::cout << "Cantidad de elementos: ";
+    std::cin >> n;
+    std::vector<int> a(n);
+    std::cout << "Ingrese los elementos:\n";
+    for (int i = 0; i < n; ++i) std::cin >> a[i];
 
-    istringstream iss(linea);
-    string palabra, masLarga = "";
-    while (iss >> palabra) {
-        if (palabra.size() > masLarga.size()) masLarga = palabra;
+    for (int i = 0; i < n - 1; ++i) {
+        bool swapped = false;
+        for (int j = 0; j < n - 1 - i; ++j) {
+            if (a[j] > a[j+1]) {
+                std::swap(a[j], a[j+1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) break; // optimización
     }
 
-    if (masLarga.empty()) cout << "No se ingresaron palabras.\n";
-    else cout << "Palabra mas larga: \"" << masLarga << "\" (longitud " << masLarga.size() << ")\n";
+    std::cout << "Array ordenado: ";
+    for (int v : a) std::cout << v << " ";
+    std::cout << std::endl;
     return 0;
 }
-

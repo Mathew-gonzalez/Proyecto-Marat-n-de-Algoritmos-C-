@@ -1,25 +1,27 @@
 #include <iostream>
-#include <cmath>
+#include <string>
+#include <cctype>
 
 int main() {
-    int N;
-    std::cout << "Ingrese N (cantidad de valores positivos): ";
-    std::cin >> N;
-    if (N <= 0) return 0;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::string s;
+    std::cout << "Ingrese una frase: ";
+    std::getline(std::cin, s);
 
-    long double prod = 1.0L;
-    for (int i = 0; i < N; ++i) {
-        long double x;
-        std::cout << "Valor " << i+1 << ": ";
-        std::cin >> x;
-        if (x <= 0) {
-            std::cout << "Todos los valores deben ser positivos." << std::endl;
-            return 0;
+    std::string t;
+    for (char c : s) {
+        if (std::isalnum(static_cast<unsigned char>(c))) {
+            t += std::tolower(static_cast<unsigned char>(c));
         }
-        prod *= x;
     }
 
-    long double geo = pow(prod, 1.0L / N);
-    std::cout << "Media geometrica: " << (double)geo << std::endl;
+    bool pal = true;
+    for (size_t i = 0, j = t.size() ? t.size()-1 : 0; i < j; ++i, --j) {
+        if (t[i] != t[j]) { pal = false; break; }
+    }
+
+    if (pal) std::cout << "Es palíndromo.\n";
+    else std::cout << "No es palíndromo.\n";
+
     return 0;
 }

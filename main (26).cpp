@@ -1,29 +1,31 @@
 #include <iostream>
-#include <cmath>
-using namespace std;
+#include <vector>
+#include <algorithm>
 
 int main() {
-    long long n;
-    cout << "Ingrese un entero positivo: ";
-    if (!(cin >> n) || n < 0) return 0;
+    int n;
+    std::cout << "Cantidad de elementos: ";
+    std::cin >> n;
+    std::vector<int> a(n);
+    for (int i = 0; i < n; ++i) std::cin >> a[i];
 
-    long long original = n;
-    int k = 0;
-    long long tmp = n;
-    if (tmp == 0) k = 1;
-    while (tmp > 0) { tmp /= 10; ++k; }
+    std::sort(a.begin(), a.end());
 
-    long long suma = 0;
-    tmp = original;
-    while (tmp > 0) {
-        int d = tmp % 10;
-        suma += (long long) pow(d, k);
-        tmp /= 10;
+    int x;
+    std::cout << "Valor a buscar: ";
+    std::cin >> x;
+
+    int l = 0, r = n - 1;
+    int pos = -1;
+    while (l <= r) {
+        int m = l + (r - l) / 2;
+        if (a[m] == x) { pos = m + 1; break; }
+        else if (a[m] < x) l = m + 1;
+        else r = m - 1;
     }
 
-    if (suma == original) cout << original << " es un numero Armstrong.\n";
-    else cout << original << " NO es un numero Armstrong.\n";
+    if (pos != -1) std::cout << "Encontrado en posición (ordenada): " << pos << std::endl;
+    else std::cout << "No se encontró el valor en el arreglo ordenado.\n";
+
     return 0;
 }
-
-

@@ -1,31 +1,27 @@
-#include <vector>
+#include <iostream>
+#include <string>
+#include <cctype>
 
 int main() {
-    int n, m;
-    std::cout << "Ingrese tamaño del primer arreglo: ";
-    std::cin >> n;
-    std::vector<int> A(n);
-    std::cout << "Ingrese elementos ordenados del primer arreglo:\n";
-    for (int i = 0; i < n; ++i) std::cin >> A[i];
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::string s;
+    std::cout << "Ingrese una frase: ";
+    std::getline(std::cin, s);
 
-    std::cout << "Ingrese tamaño del segundo arreglo: ";
-    std::cin >> m;
-    std::vector<int> B(m);
-    std::cout << "Ingrese elementos ordenados del segundo arreglo:\n";
-    for (int j = 0; j < m; ++j) std::cin >> B[j];
-
-    std::vector<int> C;
-    int i = 0, j = 0;
-    while (i < n && j < m) {
-        if (A[i] <= B[j]) C.push_back(A[i++]);
-        else C.push_back(B[j++]);
+    std::string t;
+    for (char c : s) {
+        if (std::isalnum(static_cast<unsigned char>(c))) {
+            t += std::tolower(static_cast<unsigned char>(c));
+        }
     }
-    while (i < n) C.push_back(A[i++]);
-    while (j < m) C.push_back(B[j++]);
 
-    std::cout << "Arreglo fusionado: ";
-    for (int x : C) std::cout << x << " ";
-    std::cout << std::endl;
+    bool pal = true;
+    for (size_t i = 0, j = t.size() ? t.size()-1 : 0; i < j; ++i, --j) {
+        if (t[i] != t[j]) { pal = false; break; }
+    }
+
+    if (pal) std::cout << "Es palíndromo.\n";
+    else std::cout << "No es palíndromo.\n";
+
     return 0;
 }
-

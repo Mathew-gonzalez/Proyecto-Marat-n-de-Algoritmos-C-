@@ -1,22 +1,25 @@
 #include <iostream>
-using namespace std;
+#include <vector>
 
 int main() {
-    double a, b, c;
-    cout << "Ingrese tres longitudes (separadas por espacio): ";
-    cin >> a >> b >> c;
-    if (a <= 0 || b <= 0 || c <= 0) {
-        cout << "Longitudes deben ser positivas.\n";
-        return 0;
+    int n;
+    std::cout << "Cantidad de elementos: ";
+    std::cin >> n;
+    std::vector<int> a(n);
+    std::cout << "Ingrese " << n << " enteros:\n";
+    for (int i = 0; i < n; ++i) std::cin >> a[i];
+
+    int x;
+    std::cout << "Valor a buscar: ";
+    std::cin >> x;
+
+    int pos = -1;
+    for (int i = 0; i < n; ++i) {
+        if (a[i] == x) { pos = i + 1; break; } // posición 1-based
     }
 
-    if (a + b > c && a + c > b && b + c > a) {
-        cout << "Forman un triángulo. Tipo: ";
-        if (a == b && b == c) cout << "Equilátero\n";
-        else if (a == b || a == c || b == c) cout << "Isósceles\n";
-        else cout << "Escaleno\n";
-    } else {
-        cout << "No forman un triángulo.\n";
-    }
+    if (pos != -1) std::cout << "Encontrado en la posición: " << pos << std::endl;
+    else std::cout << "No se encontró el valor.\n";
+
     return 0;
 }
