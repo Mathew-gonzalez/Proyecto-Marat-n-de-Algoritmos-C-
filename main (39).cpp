@@ -1,16 +1,13 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    int n, par=0, impar=0;
-    cout << "Ingrese un numero: ";
+int main() {
+    int n;
+    cout << "Ingrese un numero para la cuenta regresiva: ";
     cin >> n;
-    while(n>0){
-        int d = n % 10;
-        if(d % 2 == 0) par++;
-        else impar++;
-        n /= 10;
+    while(n >= 0){
+        cout << n << " ";
+        n--;
     }
-    cout << "Digitos pares: " << par << "\nDigitos impares: " << impar << endl;
     return 0;
 }

@@ -2,20 +2,16 @@
 using namespace std;
 
 int main() {
-    float monto, descuento = 0;
-    cout << "Ingrese el monto de la compra: $";
-    cin >> monto;
-
-    if (monto >= 50 && monto <= 100)
-        descuento = 0.05;
-    else if (monto <= 200)
-        descuento = 0.10;
-    else if (monto > 200)
-        descuento = 0.15;
-
-    float total = monto - (monto * descuento);
-
-    cout << "Descuento aplicado: " << (descuento * 100) << "%" << endl;
-    cout << "Total a pagar: $" << total << endl;
+    int n, contador = 0, numero;
+    cout << "Cuantos numeros desea ingresar? ";
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        cout << "Numero " << i << ": ";
+        cin >> numero;
+        if (numero > 0)
+            contador++;
+    }
+    cout << "Cantidad de numeros positivos: " << contador << endl;
     return 0;
 }
+

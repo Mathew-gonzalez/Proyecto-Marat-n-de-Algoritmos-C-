@@ -1,19 +1,12 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-bool esPrimo(int n) {
-    if(n < 2) return false;
-    for(int i = 2; i*i <= n; i++)
-        if(n % i == 0) return false;
-    return true;
-}
-
 int main() {
-    int a, b;
-    cout << "Ingrese el rango (a b): ";
-    cin >> a >> b;
-    cout << "Primos entre " << a << " y " << b << ": ";
-    for(int i = a; i <= b; i++)
-        if(esPrimo(i)) cout << i << " ";
+    double lado, area;
+    cout << "Ingrese el lado del triangulo equilatero: ";
+    cin >> lado;
+    area = (pow(lado, 2) * sqrt(3)) / 4;
+    cout << "El area es: " << area;
     return 0;
 }

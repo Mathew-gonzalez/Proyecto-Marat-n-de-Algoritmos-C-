@@ -1,25 +1,15 @@
 #include <iostream>
-#include <vector>
+using namespace std;
 
 int main() {
-    int monto;
-    std::cout << "Ingresa el monto en centavos (ej. 187): ";
-    std::cin >> monto;
-
-    std::vector<int> monedas = {100, 50, 25, 10, 5, 1};
-    std::vector<int> cuenta(monedas.size(), 0);
-
-    for (size_t i = 0; i < monedas.size(); ++i) {
-        if (monto <= 0) break;
-        cuenta[i] = monto / monedas[i];
-        monto %= monedas[i];
-    }
-
-    std::cout << "Cambio:\n";
-    for (size_t i = 0; i < monedas.size(); ++i) {
-        std::cout << monedas[i] << "c: " << cuenta[i] << "\n";
-    }
-    if (monto > 0) std::cout << "Restante: " << monto << " centavos (no se pudo cambiar completamente)\n";
-
+    char letra;
+    cout << "Ingrese una letra: ";
+    cin >> letra;
+    if(letra >= 'A' && letra <= 'Z')
+        cout << "Es mayuscula";
+    else if(letra >= 'a' && letra <= 'z')
+        cout << "Es minuscula";
+    else
+        cout << "No es una letra";
     return 0;
 }

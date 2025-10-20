@@ -2,16 +2,18 @@
 using namespace std;
 
 int main() {
-    int e1, e2, e3;
-    cout << "Ingrese tres edades: ";
-    cin >> e1 >> e2 >> e3;
-
-    float promedio = (e1 + e2 + e3) / 3.0;
-    int menor = e1;
-    if (e2 < menor) menor = e2;
-    if (e3 < menor) menor = e3;
-
-    cout << "El promedio de edades es: " << promedio << endl;
-    cout << "La edad mas joven es: " << menor << endl;
+    int n, original, inverso = 0, digito;
+    cout << "Ingrese un numero: ";
+    cin >> n;
+    original = n;
+    while (n > 0) {
+        digito = n % 10;
+        inverso = inverso * 10 + digito;
+        n /= 10;
+    }
+    if (original == inverso)
+        cout << "El numero es capicua." << endl;
+    else
+        cout << "El numero no es capicua." << endl;
     return 0;
 }

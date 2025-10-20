@@ -1,18 +1,12 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    int m, n;
-    cout << "Ingrese filas y columnas: ";
-    cin >> m >> n;
-    float mat[m][n], suma=0;
-    for(int i=0;i<m;i++){
-        for(int j=0;j<n;j++){
-            cout << "Nota ["<<i<<"]["<<j<<"]: ";
-            cin >> mat[i][j];
-            suma += mat[i][j];
-        }
-    }
-    cout << "Promedio general: " << suma / (m*n) << endl;
+int main() {
+    double n1, n2, n3, n4, promedio;
+    cout << "Ingrese cuatro numeros: ";
+    cin >> n1 >> n2 >> n3 >> n4;
+    promedio = (n1 + n2 + n3 + n4) / 4;
+    cout << "El promedio es: " << promedio << endl;
     return 0;
 }
+

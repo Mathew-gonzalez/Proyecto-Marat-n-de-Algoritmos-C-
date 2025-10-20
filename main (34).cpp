@@ -1,22 +1,16 @@
 #include <iostream>
-#include <cctype>
 using namespace std;
 
 int main() {
-    string texto;
-    int vocales = 0, consonantes = 0;
-    cout << "Ingrese una frase: ";
-    getline(cin, texto);
+    int base, exponente;
+    long resultado = 1;
+    cout << "Ingrese base y exponente: ";
+    cin >> base >> exponente;
 
-    for(char c : texto) {
-        c = tolower(c);
-        if(isalpha(c)) {
-            if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u')
-                vocales++;
-            else
-                consonantes++;
-        }
-    }
-    cout << "Vocales: " << vocales << "\nConsonantes: " << consonantes << endl;
+    for(int i=1; i<=exponente; i++)
+        resultado *= base;
+
+    cout << "Resultado: " << resultado;
     return 0;
 }
+

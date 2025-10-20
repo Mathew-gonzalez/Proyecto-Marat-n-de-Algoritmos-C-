@@ -1,19 +1,10 @@
 #include <iostream>
+using namespace std;
 
 int main() {
-    int a, b;
-    std::cout << "Ingrese a y b: ";
-    std::cin >> a >> b;
-
-    std::cout << "Original: a=" << a << " b=" << b << "\n";
-
-    // Método XOR (seguro para enteros y sin overflow)
-    a = a ^ b;
-    b = a ^ b; // (a^b)^b = a
-    a = a ^ b; // (a^b)^a = b
-
-    std::cout << "Intercambiados (XOR): a=" << a << " b=" << b << "\n";
-
+    for(int i=1; i<=20; i++){
+        if(i % 2 == 0)
+            cout << i << " ";
+    }
     return 0;
 }
-

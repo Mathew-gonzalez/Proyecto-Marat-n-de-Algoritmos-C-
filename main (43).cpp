@@ -1,17 +1,13 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    int a, b, x, y, mcd;
+int main() {
+    int a, b;
     cout << "Ingrese dos numeros: ";
     cin >> a >> b;
-    x = a; y = b;
-    while(y != 0){
-        int r = x % y;
-        x = y;
-        y = r;
-    }
-    mcd = x;
-    cout << "MCD: " << mcd << "\nMCM: " << (a*b)/mcd << endl;
+    if (a % b == 0)
+        cout << a << " es multiplo de " << b << endl;
+    else
+        cout << a << " no es multiplo de " << b << endl;
     return 0;
 }
